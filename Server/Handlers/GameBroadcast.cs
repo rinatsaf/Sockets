@@ -12,13 +12,16 @@ public static class GameBroadcast
             var socket = kvp.Key;
             var player = kvp.Value;
 
-            var currentPlayer = context.Game.Players[context.Game.CurrentPlayerIndex];
+            var currentIndex = context.Game.CurrentPlayerIndex;
+            var currentPlayer = currentIndex >= 0 && currentIndex < context.Game.Players.Count
+                ? context.Game.Players[currentIndex]
+                : null;
             var state = new
             {
                 Players = context.Game.Players.Select(p => new { p.Id, p.Name, p.IsAlive, CardsCount = p.Hand.Count }).ToList(),
                 Moves = context.Game.MoveHistory.Select(m => new { m.PlayerId, m.DeclaredNominal, m.DeclaredCount }).ToList(),
-                CurrentPlayerId = currentPlayer.Id, // Отправляем ID текущего игрока
-                CurrentPlayerName = currentPlayer.Name, // Отправляем имя текущего игрока
+                CurrentPlayerId = currentPlayer?.Id ?? -1, // Отправляем ID текущего игрока
+                CurrentPlayerName = currentPlayer?.Name ?? "", // Отправляем имя текущего игрока
                 YourHand = player.Hand.Select(c => new { Type = c.Type }).ToList()
             };
 
