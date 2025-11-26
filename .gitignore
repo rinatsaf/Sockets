@@ -1,0 +1,64 @@
+# Системные файлы
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln.cache
+*.user
+*.sln.docstates
+Thumbs.db
+Desktop.ini
+
+# Файлы сборки
+bin/
+obj/
+out/
+*.exe
+*.dll
+*.pdb
+*.appx
+*.appxbundle
+
+# Папки и файлы Rider/Resharper
+*.sln.iml
+.idea/
+*.DotSettings.user
+**/local.properties
+
+# Лог-файлы и временные файлы
+*.log
+*.tmp
+*.cache
+*.pidb
+*.ilk
+*.map
+*.tlog
+*.csproj.user
+*.rsuser
+*.sdf
+*.sqlite
+*.sql
+
+# Конфигурационные файлы пользователя
+*.userprefs
+*.vs/
+
+# Секретные файлы
+secrets.json
+
+# .NET пакеты и зависимости
+packages/
+node_modules/
+project.lock.json
+project.assets.json
+*.nuget.props
+*.nuget.targets
+
+# Автогенерируемые файлы
+Generated_Code/
+serviceFabricBackup/
+
+# Docker
+.dockerignore
+docker-compose.override.yml
